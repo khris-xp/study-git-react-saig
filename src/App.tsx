@@ -18,6 +18,7 @@ function App() {
   return (
     <>
       <div>
+        <br />
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -25,7 +26,6 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Hacked By Gan-ISUS</h1>
       <div className="card">
         <button onClick={() => handleCount()}>
           count is {count}
@@ -33,18 +33,21 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        <br />
+        <hr />
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more 555
+        Ctrl +Click on the Vite and React logos to learn more 555
       </p>
       <p className="my-doc">
         This is pawit branch
       </p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/KMITL_PCC.png" alt="logo" />
       <div>
-        Hello from khris-xp
+        Hi from khris-xp
       </div>
       <div>
-        <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked me."}</button>
+        <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked"}</button>
       </div>
     </>
   )
