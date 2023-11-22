@@ -1,33 +1,46 @@
-import { Fragment, useState } from 'react'
+import { RefObject, useRef, useState } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
+import { colors } from './constants/colors'
 import viteLogo from '/vite.svg'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [clicked, setClicked] = useState(false)
-  const [name, setName] = useState('')
-  const [bgColor, setBgColor] = useState('#ffffff')
+  const [count, setCount] = useState<number>(0)
+  const [clicked, setClicked] = useState<boolean>(false);
+  const Ref: RefObject<HTMLParagraphElement> = useRef<HTMLParagraphElement>(null);
+  const [name, setName] = useState<string>('')
+  const [bgColor, setBgColor] = useState<string>('#ffffff')
 
-  function handleCount() {
+  function handleCount(): void {
     setCount(count + 1)
   }
 
-  function handleClick() {
+  function handleClick(): void {
     setClicked(!clicked)
   }
 
-  function handleNameChange(event) {
+  function getRandomInt(max: number): number {
+    return Math.floor(Math.random() * max);
+  }
+
+  function randomColor(): void {
+    const random = getRandomInt(colors.length);
+    if (Ref.current != null)
+      Ref.current.style.color = colors[random];
+  }
+
+  function handleNameChange(event: React.ChangeEvent<HTMLInputElement>): void {
     setName(event.target.value)
   }
 
-  function toggleBgColor() {
+  function toggleBgColor(): void {
     setBgColor(bgColor === '#ffffff' ? '#f2f2f2' : '#ffffff')
   }
 
-  return (
-    <Fragment>
+  setInterval(randomColor, 1000);
 
+  return (
+    <div ref={Ref} style={{ transition: "color 0.5s" }}>
       <div className='logos'>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo spin" alt="Vite logo" />
@@ -83,7 +96,7 @@ function App() {
           /* Existing CSS styles... */
         `}
       </style>
-    </Fragment>
+    </div>
   )
 }
 
