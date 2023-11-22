@@ -1,47 +1,46 @@
-import { Fragment, useState, useRef } from 'react'
+import { RefObject, useRef, useState } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
+import { colors } from './constants/colors'
 import viteLogo from '/vite.svg'
 
 function App() {
   const [count, setCount] = useState<number>(0)
   const [clicked, setClicked] = useState<boolean>(false);
-  const [name, setName] = useState('')
-  const [bgColor, setBgColor] = useState('#ffffff')
-  const Ref = useRef<HTMLParagraphElement>(null);
-  const colors = ["red", "green", "blue", "yellow", "pink", "purple", "orange", "black", "white"]
-  
+  const Ref: RefObject<HTMLParagraphElement> = useRef<HTMLParagraphElement>(null);
+  const [name, setName] = useState<string>('')
+  const [bgColor, setBgColor] = useState<string>('#ffffff')
+
   function handleCount(): void {
-    setCount((count) => count + 1);
+    setCount(count + 1)
   }
 
-  function handleClick() {
+  function handleClick(): void {
     setClicked(!clicked)
-  }
-
-  function handleNameChange(event:React.ChangeEvent<HTMLInputElement>) {
-    setName(event.target.value)
-  }
-
-  function toggleBgColor() {
-    setBgColor(bgColor === '#ffffff' ? '#f2f2f2' : '#ffffff')
   }
 
   function getRandomInt(max: number): number {
     return Math.floor(Math.random() * max);
   }
-  
+
   function randomColor(): void {
     const random = getRandomInt(colors.length);
     if (Ref.current != null)
       Ref.current.style.color = colors[random];
   }
-  
-  setInterval(randomColor, 1000);
-  
-  return (
-    <Fragment>
 
+  function handleNameChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    setName(event.target.value)
+  }
+
+  function toggleBgColor(): void {
+    setBgColor(bgColor === '#ffffff' ? '#f2f2f2' : '#ffffff')
+  }
+
+  setInterval(randomColor, 1000);
+
+  return (
+    <div ref={Ref} style={{ transition: "color 0.5s" }}>
       <div className='logos'>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo spin" alt="Vite logo" />
@@ -97,7 +96,7 @@ function App() {
           /* Existing CSS styles... */
         `}
       </style>
-    </Fragment>
+    </div>
   )
 }
 
