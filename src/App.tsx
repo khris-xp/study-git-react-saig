@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -16,7 +16,7 @@ function App() {
   }
 
   return (
-    <>
+    <Fragment>
       <div>
         <br />
         <a href="https://vitejs.dev" target="_blank">
@@ -49,7 +49,7 @@ function App() {
       <div>
         <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked"}</button>
       </div>
-    </>
+    </Fragment>
   )
 }
 
