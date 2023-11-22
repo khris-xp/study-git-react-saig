@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <div>
+        <br />
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -22,15 +23,15 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Hacked By Gan-ISUS</h1>
-      <h2>China number one</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count + 2)}>
           count is {count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        <br />
+        <hr />
       </div>
       <p className="read-the-docs">
         Ctrl +Click on the Vite and React logos to learn more 555
@@ -43,7 +44,7 @@ function App() {
         Hi from khris-xp
       </div>
       <div>
-        <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked me."}</button>
+        <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked"}</button>
       </div>
     </>
   )
