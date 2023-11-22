@@ -6,6 +6,12 @@ import viteLogo from '/vite.svg'
 function App() {
   const [count, setCount] = useState<number>(0)
 
+  const [clicked, setClicked] = useState<boolean>(false);
+
+  function handleClick(): void {
+    setClicked(!clicked);
+  }
+
   return (
     <>
       <div>
@@ -16,7 +22,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Hacked By SAIG</h1>
+      <h1>Hacked By Gan-ISUS</h1>
+      <h2>China number one</h2>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -34,6 +41,9 @@ function App() {
       <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/KMITL_PCC.png" alt="logo" />
       <div>
         Hi from khris-xp
+      </div>
+      <div>
+        <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked me."}</button>
       </div>
     </>
   )
