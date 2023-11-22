@@ -1,7 +1,6 @@
 import { ChangeEvent, Fragment, useState } from 'react';
 import './App.css';
 import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,9 +27,6 @@ function App() {
   return (
     <Fragment>
       <div className='logos'>
-        <a href='https://vitejs.dev' target='_blank' rel='noopener noreferrer'>
-          <img src={viteLogo} className='logo spin' alt='Vite logo' />
-        </a>
         <a href='https://react.dev' target='_blank' rel='noopener noreferrer'>
           <img src={reactLogo} className='logo react spin' alt='React logo' />
         </a>
