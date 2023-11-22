@@ -33,13 +33,14 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more 555
+        Ctrl +Click on the Vite and React logos to learn more 555
       </p>
       <p className="my-doc">
         This is pawit branch
       </p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/KMITL_PCC.png" alt="logo" />
       <div>
-        Hello from khris-xp
+        Hi from khris-xp
       </div>
       <div>
         <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked me."}</button>
