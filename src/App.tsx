@@ -1,19 +1,36 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 function App() {
   const [count, setCount] = useState<number>(0)
-
   const [clicked, setClicked] = useState<boolean>(false);
+  const Ref = useRef<HTMLParagraphElement>(null);
+  const colors = ["red", "green", "blue", "yellow", "pink", "purple", "orange", "black", "white"]
+  
+  function handleCount(): void {
+    setCount((count) => count + 1);
+  }
 
   function handleClick(): void {
     setClicked(!clicked);
   }
+  
+  function getRandomInt(max: number): number {
+    return Math.floor(Math.random() * max);
+  }
+  
+  function randomColor(): void {
+    const random = getRandomInt(colors.length);
+    if (Ref.current != null)
+      Ref.current.style.color = colors[random];
+  }
+  
+  setInterval(randomColor, 1000);
 
   return (
-    <>
+    <div ref={Ref} style={{transition: "color 0.5s"}}>
       <div className='logos'>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo spin" alt="Vite logo" />
@@ -25,7 +42,7 @@ function App() {
       <h1 className='spin'>Hacked By Gan-ISUS</h1>
       <h2>China number one</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 2)}>
+        <button onClick={() => handleCount()}>
           count is {count}
         </button>
         <p>
@@ -47,7 +64,7 @@ function App() {
       <div>
         <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked"}</button>
       </div>
-    </>
+    </div>
   )
 }
 
