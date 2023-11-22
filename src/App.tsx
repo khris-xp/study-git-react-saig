@@ -1,14 +1,14 @@
-import { useState, useRef } from 'react'
+import { RefObject, useRef, useState } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
+import { colors } from './constants/colors'
 import viteLogo from '/vite.svg'
 
 function App() {
   const [count, setCount] = useState<number>(0)
   const [clicked, setClicked] = useState<boolean>(false);
-  const Ref = useRef<HTMLParagraphElement>(null);
-  const colors = ["red", "green", "blue", "yellow", "pink", "purple", "orange", "black", "white"]
-  
+  const Ref: RefObject<HTMLParagraphElement> = useRef<HTMLParagraphElement>(null);
+
   function handleCount(): void {
     setCount((count) => count + 1);
   }
@@ -16,21 +16,21 @@ function App() {
   function handleClick(): void {
     setClicked(!clicked);
   }
-  
+
   function getRandomInt(max: number): number {
     return Math.floor(Math.random() * max);
   }
-  
+
   function randomColor(): void {
     const random = getRandomInt(colors.length);
     if (Ref.current != null)
       Ref.current.style.color = colors[random];
   }
-  
+
   setInterval(randomColor, 1000);
 
   return (
-    <div ref={Ref} style={{transition: "color 0.5s"}}>
+    <div ref={Ref} style={{ transition: "color 0.5s" }}>
       <div className='logos'>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo spin" alt="Vite logo" />
