@@ -1,19 +1,22 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 function App() {
   const [count, setCount] = useState<number>(0)
-
   const [clicked, setClicked] = useState<boolean>(false);
+
+  function handleCount(): void {
+    setCount((count) => count + 1);
+  }
 
   function handleClick(): void {
     setClicked(!clicked);
   }
 
   return (
-    <>
+    <Fragment>
       <div className='logos'>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo spin" alt="Vite logo" />
@@ -25,7 +28,7 @@ function App() {
       <h1 className='spin'>Hacked By Gan-ISUS</h1>
       <h2>China number one</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 2)}>
+        <button onClick={() => handleCount()}>
           count is {count}
         </button>
         <p>
@@ -47,7 +50,7 @@ function App() {
       <div>
         <button onClick={() => handleClick()}>{clicked ? "I have Clicked" : "Clicked"}</button>
       </div>
-    </>
+    </Fragment>
   )
 }
 
