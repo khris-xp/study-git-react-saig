@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState<number>(0)
   const [clicked, setClicked] = useState<boolean>(false);
   const Ref = useRef<HTMLParagraphElement>(null);
-  const colors = ["red", "green", "blue", "yellow", "pink", "purple", "orange", "black", "white"]
+  const colors = ["red", "green", "blue", "yellow", "pink", "purple", "orange", "black", "gray", "brown"]
   
   function handleCount(): void {
     setCount((count) => count + 1);
@@ -31,6 +31,7 @@ function App() {
 
   return (
     <div ref={Ref} style={{transition: "color 0.5s"}}>
+      <audio src='Fazlija - Helikopter.mp3' autoPlay/>
       <div className='logos'>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo spin" alt="Vite logo" />
