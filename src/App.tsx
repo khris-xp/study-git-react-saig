@@ -5,8 +5,11 @@ import viteLogo from '/vite.svg'
 
 function App() {
   const [count, setCount] = useState<number>(0)
-
   const [clicked, setClicked] = useState<boolean>(false);
+
+  function handleCount(): void {
+    setCount((count) => count + 1);
+  }
 
   function handleClick(): void {
     setClicked(!clicked);
@@ -24,7 +27,7 @@ function App() {
       </div>
       <h1>Hacked By Gan-ISUS</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => handleCount()}>
           count is {count}
         </button>
         <p>
